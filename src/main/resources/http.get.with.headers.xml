@@ -1,0 +1,10 @@
+<cfg>
+	<url>http://navxapebnp03:8181/cxf/rest/fcbkLoanService/getFullLoanDetails/702219104</url>
+	<method>GET</method>
+	<headers>
+		<h>
+			<k>Authorization</k>
+			<v>Bearer 05437968-e6c1-4a7a-b485-142c4c7a41a6</v>
+		</h>
+	</headers>
+</cfg>

@@ -1,0 +1,19 @@
+<cfg>
+	<url>https://esb.altisource.com/apis/oauth2/token</url>
+	<method>POST</method>
+	<params>
+		<p>
+			<k>client_id</k>
+			<v>equator</v>
+		</p>
+		<p>
+			<k>client_secret</k>
+			<v>7fd2bd65-e005-411d-8d24-77e78b595ec5</v>
+		</p>
+		<p>
+			<k>grant_type</k>
+			<v>client_credentials</v>
+		</p>
+	</params>
+	
+</cfg>

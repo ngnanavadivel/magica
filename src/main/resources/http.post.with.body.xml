@@ -1,0 +1,31 @@
+<cfg>
+	<url>https://esbuat.altisource.com/cxf/rest/DMSAttorneyReferralService/referrals/by-vendor</url>
+	<method>POST</method>
+	<headers>
+		<h>
+			<k>Authorization</k>
+			<v>bearer abf863e9-f0e3-486c-8364-25d976735b52</v>
+		</h>
+		<h>
+			<k>Content-Type</k>
+			<v>application/json</v>
+		</h>
+	</headers>
+	<body>
+	<![CDATA[
+		{
+		"callType": "REGULAR",
+		"referralType": "FCLS",
+		"startTime": "Oct 28, 2015 02:00:52 AM",
+		"vendorStateMap": {
+		"100011186": [
+		"MA",
+		"CA",
+		"NY",
+		"GA"
+		]
+		}
+		}
+		]]>
+	</body>
+</cfg>

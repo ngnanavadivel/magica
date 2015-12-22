@@ -1,0 +1,14 @@
+<employee xmlns="http://www.example.org/employee">
+	<contact>
+		<firstName>Hari</firstName>
+		<lastName>Ananth</lastName>
+		<address>
+			<line1>175 centre st, APT 1305</line1>
+			<line2>Quincy, MA, 02169</line2>
+		</address>
+	</contact>
+	<ssn>111-222-3344</ssn>
+	<firstName>Roshan</firstName>
+	<lastName>Nataraj</lastName>
+	<dateOfBirth>21-Mar-2012</dateOfBirth>
+</employee>

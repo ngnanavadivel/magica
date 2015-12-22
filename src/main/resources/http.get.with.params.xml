@@ -1,0 +1,14 @@
+<cfg>
+	<url>http://10.20.5.26/cgi-bin/wspd_cgi.sh/WService=wsbroker/web/msw-data.p</url>
+	<method>GET</method>
+	<params>
+		<p>
+			<k>loan</k>
+			<v>2222222</v>
+		</p>
+		<p>
+			<k>optype</k>
+			<v>xml</v>
+		</p>
+	</params>	
+</cfg>

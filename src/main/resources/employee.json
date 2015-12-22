@@ -1,0 +1,14 @@
+{
+	"ssn": "444-555-6677",
+	"contact": {
+	"firstName" : "Ambal",
+ 	"lastName" : "Thirugnanam",
+ 	"address" : {
+ 		"line1":   "Hello",
+ 		"line2":   "World"
+ 		}
+	},	
+ 	"firstName" : "Nataraj",
+ 	"lastName" : "Gnanavadivel",
+ 	"dateOfBirth" : "21-Mar-2012"
+}

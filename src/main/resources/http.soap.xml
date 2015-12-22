@@ -1,0 +1,19 @@
+<cfg>
+	<url>http://www.webservicex.com/globalweather.asmx</url>
+	<method>POST</method>
+	<headers>
+		<h>
+			<k>Content-Type</k>
+			<v>text/xml</v>
+		</h>
+	</headers>
+	<body><![CDATA[
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <GetCitiesByCountry xmlns="http://www.webserviceX.NET">
+      <CountryName>USA</CountryName>
+    </GetCitiesByCountry>
+  </soap:Body>
+</soap:Envelope> ]]>
+	</body>
+</cfg>

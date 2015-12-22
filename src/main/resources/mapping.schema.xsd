@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.magica.com/schema/mapping"
+	xmlns:magica="http://www.magica.com/schema/mapping">
+	<element
+		name="fieldMappings"
+		type="magica:FieldMappings" />
+	<complexType name="FieldMappings">
+		<sequence>
+			<element
+				name="fieldMapping"
+				type="magica:FieldMapping"
+				minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="FieldMapping">
+		<sequence>
+			<element
+				name="targetProperty"
+				type="string" />
+			<element
+				name="srcProperty"
+				type="string" />
+		</sequence>
+	</complexType>
+</schema>
