@@ -22,78 +22,78 @@ import org.apache.http.message.BasicNameValuePair;
 import com.codemagic.magica.reader.HttpRequestConfig.HTTPMETHOD;
 
 public class HttpReader {
-	public String read(HttpRequestConfig cfg) throws IOException {
-		String responseString = null;
-		// Create a HttpClient.
-		CloseableHttpClient client = null;
-		CloseableHttpResponse response = null;
-		try {
-			// Request.
-			HttpRequestBase request = null;
+   public String read(HttpRequestConfig cfg) throws IOException {
+      String responseString = null;
+      // Create a HttpClient.
+      CloseableHttpClient client = null;
+      CloseableHttpResponse response = null;
+      try {
+         // Request.
+         HttpRequestBase request = null;
 
-			// Create a HttpClient.
-			client = HttpClients.createDefault();
+         // Create a HttpClient.
+         client = HttpClients.createDefault();
 
-			// Set the URI
-			URIBuilder uriBuilder = new URIBuilder(cfg.getUrl());
-			boolean isPost = cfg.getHttpMethod() == HTTPMETHOD.POST;
-			boolean isGet = cfg.getHttpMethod() == HTTPMETHOD.GET;
+         // Set the URI
+         URIBuilder uriBuilder = new URIBuilder(cfg.getUrl());
+         boolean isPost = cfg.getHttpMethod() == HTTPMETHOD.POST;
+         boolean isGet = cfg.getHttpMethod() == HTTPMETHOD.GET;
 
-			if (isGet) {
-				// Add Query parameters if any.
-				HashMap<String, String> queryParameters = cfg.getQueryParameters();
-				if (queryParameters != null && !queryParameters.isEmpty()) {
-					for (Entry<String, String> e : queryParameters.entrySet()) {
-						uriBuilder.addParameter(e.getKey(), e.getValue());
-					}
-				}
+         if (isGet) {
+            // Add Query parameters if any.
+            HashMap<String, String> queryParameters = cfg.getQueryParameters();
+            if (queryParameters != null && !queryParameters.isEmpty()) {
+               for (Entry<String, String> e : queryParameters.entrySet()) {
+                  uriBuilder.addParameter(e.getKey(), e.getValue());
+               }
+            }
 
-				// Initialize the request.
-				request = new HttpGet(uriBuilder.build());
-			}
-			if (isPost) {
-				// Add Post Parameters if any.
-				List<NameValuePair> params = new ArrayList<NameValuePair>();
-				HashMap<String, String> queryParameters = cfg.getQueryParameters();
-				if (queryParameters != null && !queryParameters.isEmpty()) {
-					for (Entry<String, String> e : queryParameters.entrySet()) {
-						params.add(new BasicNameValuePair(e.getKey(), e.getValue()));
-					}
-				}
+            // Initialize the request.
+            request = new HttpGet(uriBuilder.build());
+         }
+         if (isPost) {
+            // Add Post Parameters if any.
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            HashMap<String, String> queryParameters = cfg.getQueryParameters();
+            if (queryParameters != null && !queryParameters.isEmpty()) {
+               for (Entry<String, String> e : queryParameters.entrySet()) {
+                  params.add(new BasicNameValuePair(e.getKey(), e.getValue()));
+               }
+            }
 
-				// Initialize the request.
-				request = new HttpPost(uriBuilder.build());
-				((HttpPost) request).setEntity(new UrlEncodedFormEntity(params));
-			}
+            // Initialize the request.
+            request = new HttpPost(uriBuilder.build());
+            ((HttpPost) request).setEntity(new UrlEncodedFormEntity(params));
+         }
 
-			// Add Request Headers if any.
-			HashMap<String, String> requestHeaders = cfg.getRequestHeaders();
-			if (requestHeaders != null && !requestHeaders.isEmpty()) {
-				for (Entry<String, String> e : requestHeaders.entrySet()) {
-					request.addHeader(e.getKey(), e.getValue());
-				}
-			}
+         // Add Request Headers if any.
+         HashMap<String, String> requestHeaders = cfg.getRequestHeaders();
+         if (requestHeaders != null && !requestHeaders.isEmpty()) {
+            for (Entry<String, String> e : requestHeaders.entrySet()) {
+               request.addHeader(e.getKey(), e.getValue());
+            }
+         }
 
-			// Add Request Body if any.
-			if (isPost && cfg.getRequestBody() != null && !cfg.getRequestBody().trim().isEmpty()) {
-				((HttpPost) request).setEntity(new StringEntity(cfg.getRequestBody()));
-			}
+         // Add Request Body if any.
+         if (isPost && cfg.getRequestBody() != null && !cfg.getRequestBody().trim().isEmpty()) {
+            ((HttpPost) request).setEntity(new StringEntity(cfg.getRequestBody()));
+         }
 
-			// Execute the request.
-			response = client.execute(request);
+         // Execute the request.
+         response = client.execute(request);
 
-			responseString = IOUtils.toString(response.getEntity().getContent());
+         responseString = IOUtils.toString(response.getEntity().getContent());
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (response != null) {
-				response.close();
-			}
-			if (client != null) {
-				client.close();
-			}
-		}
-		return responseString;
-	}
+      } catch (Exception e) {
+         e.printStackTrace();
+      } finally {
+         if (response != null) {
+            response.close();
+         }
+         if (client != null) {
+            client.close();
+         }
+      }
+      return responseString;
+   }
 }

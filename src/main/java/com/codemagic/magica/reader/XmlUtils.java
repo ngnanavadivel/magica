@@ -17,21 +17,21 @@ import org.xml.sax.SAXException;
 
 public class XmlUtils {
 
-	public static Document getDocument(InputSource source)
-			throws ParserConfigurationException, SAXException, IOException {
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder builder = factory.newDocumentBuilder();
-		Document doc = builder.parse(source);
-		return doc;
-	}
+   public static String eval(Node doc, String xpath_url) throws XPathExpressionException {
+      XPathFactory xpathFactory = XPathFactory.newInstance();
+      return xpathFactory.newXPath().compile(xpath_url).evaluate(doc);
+   }
 
-	public static String eval(Node doc, String xpath_url) throws XPathExpressionException {
-		XPathFactory xpathFactory = XPathFactory.newInstance();
-		return xpathFactory.newXPath().compile(xpath_url).evaluate(doc);
-	}
+   public static Document getDocument(InputSource source) throws ParserConfigurationException, SAXException,
+         IOException {
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      Document doc = builder.parse(source);
+      return doc;
+   }
 
-	public static NodeList getNodes(Node doc, String xpath_url) throws XPathExpressionException {
-		XPathFactory xpathFactory = XPathFactory.newInstance();
-		return (NodeList) xpathFactory.newXPath().compile(xpath_url).evaluate(doc, XPathConstants.NODESET);
-	}
+   public static NodeList getNodes(Node doc, String xpath_url) throws XPathExpressionException {
+      XPathFactory xpathFactory = XPathFactory.newInstance();
+      return (NodeList) xpathFactory.newXPath().compile(xpath_url).evaluate(doc, XPathConstants.NODESET);
+   }
 }
